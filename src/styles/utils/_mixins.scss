@@ -1,0 +1,31 @@
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.3s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin onMobile {
+  // тут від 0 до 639.99 px
+  @media only screen and (max-width: 639.99px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media only screen and (min-width: 640px) and (max-width: 1023.99px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin onXL {
+  @media only screen and (min-width: 1600px) {
+    @content;
+  }
+}

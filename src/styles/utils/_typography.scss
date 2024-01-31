@@ -1,0 +1,195 @@
+@import "./mixins";
+
+html {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+input, textarea {
+  color: $white;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  &::placeholder {
+    color: $white;
+    font-family: 'Poppins', 'sans-serif';
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+}
+
+h1 {
+  color: $white;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 4.25rem; /* 106.25% */
+  letter-spacing: -2px;
+
+  @include onMobile {
+    font-size: 3.25rem;
+    line-height: 3.9rem;
+  }
+}
+
+.nav-text {
+  color: $white;
+  text-align: center;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.21875rem; /* 19.5px */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.small-title {
+  color: $dark-for-text;
+  text-align: center;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.6rem; /* 48px */
+}
+
+.big-title {
+  color: $dark-for-text;
+  text-align: center;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 2.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 3.3rem; /* 52.8px */
+}
+
+.regular-text {
+  color: $light-for-text;
+  text-align: center;
+  font-family: "Open Sans", 'sans-serif';
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.25rem; /* 36px */
+
+  @include onMobile {
+    font-size: 1.375rem;
+  }
+}
+
+.intro-text {
+  color: $light-for-text;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.card-title {
+  //for card in 'expertise'
+  color: $dark-for-text;
+  text-align: center;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.75rem; /* 28px */
+}
+
+.card-text-1 {
+  // for card in 'expertise'
+  color: $light-for-text;
+  text-align: center;
+  font-family: "Open Sans", 'sans-serif';
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.3125rem; /* 21px */
+}
+
+.card-text-2 {
+  color: $light-for-text;
+  font-family: "Open Sans", 'sans-serif';
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.21875rem; /* 19.5px */
+}
+
+.subtitle {
+  // text under main title
+  color: $white;
+  font-family: "Open Sans", 'sans-serif';
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6875rem; /* 27px */
+}
+
+.button-text {
+  color: $white;
+  text-align: center;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.link-button-text {
+  color: $dark;
+  text-align: left;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 0.92rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.service-card-number-text {
+  color: $blue-1;
+  text-align: center;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.contacts-value-text {
+  color: $white;
+  font-family: "Open Sans", 'sans-serif';
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.25rem; /* 36px */
+}
+
+.footer-title-text {
+  color: $white;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 3rem; /* 48px */
+}
