@@ -8,6 +8,11 @@
 
   body {
     background-color: $blue-4;
+    scroll-behavior: smooth;
+  }
+
+  .hide-overf-onmenu {
+    overflow: hidden;
   }
 
 
@@ -16,7 +21,48 @@
     margin: 0 auto;
 
     &__mobile {
-        display: none;
+        box-sizing: border-box;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: -100%;
+        background-color: $dark;
+        z-index: 80;
+        transition: left $trans-time ease-in-out;
+
+        &--show {
+            left: 0 !important;
+        }
+
+        .nav__list {
+            flex-direction: column;
+
+            max-width: 1024px;
+            margin: 30px auto;
+            width: 100%;
+            padding: 0 $p-side-sm;
+    
+            @include onTablet {
+                padding: 0 $p-side-md;
+                min-height: 45vh;
+            }
+
+            @include onDesktop {
+                padding: 0 $p-side-lg;
+            }
+        }
+
+        .nav__link {
+            &::after {
+                bottom: -8px;
+
+            }
+    
+            &:hover::after {
+                width: 100%;
+            }
+        }
     }
 
     &__top {
@@ -70,7 +116,13 @@
     &__list {
         display: flex;
         flex-direction: row;
+        gap: 48px;
     
+        @include onMobile {
+            flex-direction: column;
+            gap: 24px;
+            padding-bottom: 80px;
+        }
     }
 
     &__item {
@@ -83,11 +135,36 @@
         display: block;
         height: 100%;
         width: max-content;
-        padding: 52px 24px;
+        padding: 48px 0;
         box-sizing: border-box;
+        position: relative;
 
         &--hire, &--logo {
             padding: 52px 0;
+        }
+
+        @include onMobile {
+            padding: 20px 0;
+
+            &::after {
+                bottom: -8px;
+            }
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            bottom: 40px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 0;
+            height: 2px;
+            background-color: $blue-2;
+            transition: width $trans-time ease-in-out;
+        }
+
+        &:hover::after {
+            width: 100%;
         }
     }
 }
@@ -107,10 +184,14 @@
         margin: 0 auto;
         width: 100%;
         padding: 0 $p-side-sm;
-        height: 50vh;
+
+        @include onMobile {
+            min-height: 50vh;
+        }
 
         @include onTablet {
             padding: 0 $p-side-md;
+            min-height: 45vh;
         }
 
         @include onDesktop {
@@ -153,12 +234,17 @@
 }
 
 .button {
+    cursor: pointer;
     border: none;
     width: 264px;
     height: 50px;
     border-radius: 8px;
     background: $blue-0;
     transition: background-color $trans-time ease-in-out;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @include onMobile {
         width: 100%;
@@ -166,14 +252,6 @@
 
     &:hover {
         background-color: $blue-1;
-    }
-
-    &__link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 100%;
     }
 }
 
@@ -201,6 +279,63 @@
         @include onDesktop {
             border-radius: $border-radius-30 0 $border-radius-30 0;
         }
+    }
+
+    &__content {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+
+        @include onTablet {
+            bottom: 40px;
+            left: 40px;
+        }
+
+        @include onDesktop {
+            bottom: 40px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    }
+
+    &__content-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        @include onDesktop {
+            flex-direction: row;
+            gap: 24px;
+            align-items: center;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    &__button {
+        background-color: $white;
+        padding: 7px;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__text-container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+    }
+
+    &__title, &__text {
+        color: $white;
+        text-align: left;
     }
 }
 
@@ -738,6 +873,42 @@
         @include onDesktop {
             margin-top: 120px;
         }
+
+        &__hire {
+            display: none;
+        }
+
+        &__list {
+            gap: 64px;
+        }
+
+        &__link {
+            @include onMobile {
+                padding: 0;
+            }
+        }
+
+        &__menu-icon-container {
+            display: none;
+        }
+
+        &__menu {
+            display: block;
+        }
+
+        &__top {
+            @include onMobile {
+                flex-direction: column;
+                align-items: start;
+                gap: 48px;
+            }
+
+            @include onTablet {
+                flex-direction: column;
+                align-items: start;
+                gap: 24px;
+            }
+        }
     }
 }
 
@@ -827,5 +998,31 @@
         display: flex;
         flex-direction: row;
         gap: 32px;
+    }
+
+    &__icon-container path {
+        fill: $white; 
+        transition: fill $trans-time ease-in-out; 
+    }
+    
+    &__icon-container:hover path {
+        fill: $blue-2; 
+    }
+
+    &__link {
+        color: $white;
+        transition: color $trans-time ease-in-out;
+
+        &:hover {
+            color: $blue-2;
+        }
+    }
+}
+
+.scale-on-hover {
+    transition: transform $trans-time ease-in-out; 
+
+    &:hover {
+        transform: scale(1.05);
     }
 }
